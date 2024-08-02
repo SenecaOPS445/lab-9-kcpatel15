@@ -1,0 +1,74 @@
+vmlab | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "checksum": "82379b48f26f8423f88174511066e2f7f153f858",
+    "dest": "/tmp/ansible_hosts",
+    "gid": 1004,
+    "group": "student",
+    "mode": "0664",
+    "owner": "student",
+    "path": "/tmp/ansible_hosts",
+    "size": 76,
+    "state": "file",
+    "uid": 1004
+}
+
+PLAY [update motd file] ********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vmlab]
+
+TASK [setup a MOTD] ************************************************************
+ok: [vmlab]
+
+PLAY RECAP *********************************************************************
+vmlab                      : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+PLAY [vmlab] *******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vmlab]
+
+TASK [install apache] **********************************************************
+ok: [vmlab]
+
+TASK [restart apache] **********************************************************
+changed: [vmlab]
+
+PLAY RECAP *********************************************************************
+vmlab                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+PLAY [vmlab] *******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vmlab]
+
+TASK [install apache] **********************************************************
+ok: [vmlab]
+
+TASK [install EPEL repo] *******************************************************
+ok: [vmlab]
+
+TASK [remove tree package] *****************************************************
+ok: [vmlab]
+
+TASK [set hostname] ************************************************************
+ok: [vmlab]
+
+TASK [create user] *************************************************************
+ok: [vmlab]
+
+TASK [setup SSH directory] *****************************************************
+ok: [vmlab]
+
+TASK [copy authorized_keys] ****************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+fatal: [vmlab]: FAILED! => {"changed": false, "msg": "Could not find or access '/home/student/.ssh/authorized_keys' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+
+PLAY RECAP *********************************************************************
+vmlab                      : ok=7    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
